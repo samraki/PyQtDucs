@@ -13,9 +13,9 @@ class Example(QWidget): #inherit from the QtWidget class
 
     def initUI(self) :
 
-        self.setGeometry(300,300,500,400)
-        self.setWindowTitle('Sarah Assist')
-        #self.setWindowIcon('icon path')  #uptional
+        self.setGeometry(300,300,500,400)   #1st and 2nd numbers are position and 3th and 4th are resizing
+        self.setWindowTitle('Sarah Assist')   #Window title
+        self.setWindowIcon(QIcon(r'icon file path'))  #uptional
         
         self.show()
 

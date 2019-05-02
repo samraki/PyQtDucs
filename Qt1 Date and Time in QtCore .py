@@ -1,5 +1,5 @@
 from PyQt5.QtCore import QDate, QTime, QDateTime, Qt
-
+from stay import stay 
 now = QDate.currentDate()
 print(now)
 print(now.toString(Qt.ISODate))
@@ -12,4 +12,4 @@ print("---")
 time = QTime.currentTime()
 print(time.toString(Qt.ISODate))
 print(time.toString(Qt.DefaultLocaleLongDate))
-
+stay()
