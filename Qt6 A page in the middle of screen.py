@@ -1,6 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication,QWidget,QPushButton,QToolTip,QMessageBox
-from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import QApplication,QWidget,QDesktopWidget,QMessageBox
 
 
 class Example(QWidget): #inherit from the QtWidget class
@@ -10,16 +9,17 @@ class Example(QWidget): #inherit from the QtWidget class
         self.initUI()
         
     def initUI(self) :
-        QToolTip.setFont(QFont('SanaSerif', 10))  #this code set the font family and font size
-        self.setToolTip("<b>Sarah is a <u>Free</u> and <u>Open Sorce</u> Text assistant</b>")
-        qbtn = QPushButton('Submit',self)
-        #qbtn.clicked.connect(self.close) uptional
-        qbtn.move(20,20)
-        qbtn.setToolTip("Start")
-        self.setGeometry(300,300,500,500)   #1st and 2nd numbers are position and 3th and 4th are resizing
+        self.resize(250, 250)
+        self.center()
         self.setWindowTitle('Sarah Assist')   #Window title
         self.show()
-        
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+    
     def closeEvent(self,event):
         replay = QMessageBox.question(self,'Message','Are you sure to quit',
                                       QMessageBox.Yes | QMessageBox.No,QMessageBox.No)
@@ -35,3 +35,4 @@ if __name__ == "__main__" :
     ex = Example()
     sys.exit(app.exec_())
 
+ 
